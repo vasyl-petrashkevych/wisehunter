@@ -1,0 +1,2 @@
+# wisehunter
+Custom WordPress theme 
