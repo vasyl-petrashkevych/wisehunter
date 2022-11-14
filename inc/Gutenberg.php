@@ -4,13 +4,13 @@ namespace WiseHunter {
 	class Gutenberg {
 
 		public static function init(): void {
-			add_filter( 'allowed_block_types_all', [ 'WiseHunter\Gutenberg', 'allowed_block_types' ], 25, 2 );
-			add_action( 'init', [ 'WiseHunter\Gutenberg', 'init_action' ] );
+			add_filter( 'allowed_block_types_all', [ __CLASS__, 'allowed_block_types' ], 25, 2 );
+			add_action( 'init', [ __CLASS__, 'init_action' ] );
 			add_action( 'enqueue_block_editor_assets', [
-				'WiseHunter\Gutenberg',
+				__CLASS__,
 				'enqueue_block_editor_assets_action'
 			] );
-			add_filter( 'block_categories_all', [ 'WiseHunter\Gutenberg', 'register_categories' ] );
+			add_filter( 'block_categories_all', [ __CLASS__, 'register_categories' ] );
 		}
 
 		public static function register_categories( $categories ) {

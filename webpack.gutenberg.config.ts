@@ -7,11 +7,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // Environment
 const isProduction = process.env.NODE_ENV === 'production'
 
-const webpackConfig: Configuration = {
+const webpackGutenbergConfig: Configuration = {
     devtool: !isProduction ? 'source-map' : false,
     target: 'web',
     mode: isProduction ? 'production' : 'development',
-    entry: './src/index.tsx',
+    entry: {
+        gutenberg: './src/gutenberg/index.tsx'
+    },
     output: {
         path: path.join(__dirname, 'assets'),
         filename: 'admin/js/[name].js',
@@ -96,4 +98,4 @@ const webpackConfig: Configuration = {
     ]
 
 }
-export default webpackConfig
+export default webpackGutenbergConfig

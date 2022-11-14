@@ -3,7 +3,7 @@
 namespace WiseHunter {
 	class Settings {
 		public static function init(): void {
-			add_action( 'after_setup_theme', [ 'WiseHunter\Settings', 'after_setup_theme_action' ] );
+			add_action( 'after_setup_theme', [ __CLASS__, 'after_setup_theme_action' ] );
 		}
 
 		public static function after_setup_theme_action() {
