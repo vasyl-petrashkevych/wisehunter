@@ -29,6 +29,7 @@ namespace WiseHunter {
 		private static function get_blocks(): array {
 			$blocks = [
 				self::generate_block_name( 'container' ),
+				self::generate_block_name( 'two_columns' ),
 			];
 
 			return $blocks;
@@ -57,7 +58,7 @@ namespace WiseHunter {
 		private static function register_scripts() {
 			wp_register_script(
 				'wisehunter-blocks',
-				get_stylesheet_directory_uri() . '/assets/admin/js/main.js',
+				get_stylesheet_directory_uri() . '/assets/admin/js/gutenberg.js',
 				[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor' ],
 				WISEHUNTER_THEME_VERSION,
 				true
@@ -65,7 +66,7 @@ namespace WiseHunter {
 
 			wp_register_style(
 				'wisehunter-blocks-style',
-				get_stylesheet_directory_uri() . '/assets/admin/styles/main.css',
+				get_stylesheet_directory_uri() . '/assets/admin/styles/gutenberg.css',
 				[ 'wp-blocks' ],
 				WISEHUNTER_THEME_VERSION
 			);

@@ -18,3 +18,18 @@ if ( ! defined( 'WISEHUNTER_THEME_VERSION' ) ) {
 \WiseHunter\Security::init();
 \WiseHunter\Gutenberg::init();
 \WiseHunter\ThemeSettings::init();
+
+
+
+add_filter('acf/settings/save_json', 'my_acf_json_save_point');
+
+function my_acf_json_save_point( $path ) {
+
+	// update path
+	$path = get_stylesheet_directory() . '/acf-fields';
+
+
+	// return
+	return $path;
+
+}
