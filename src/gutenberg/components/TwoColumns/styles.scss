@@ -3,4 +3,34 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 20px;
+
+  &.reverse {
+    grid-auto-flow: dense;
+
+    .components-responsive-wrapper {
+      grid-column: 2;
+    }
+
+    .text {
+      grid-column: 1
+    }
+  }
+
+  .components-responsive-wrapper__content {
+    position: relative;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+      margin: 0;
+    }
+
+    p {
+      margin: 15px 0 0 0;
+    }
+  }
 }

@@ -87,6 +87,7 @@ const webpackGutenbergConfig: Configuration = {
     // },
     externals: {
         '@wordpress/blocks': 'wp.blocks',
+        '@wordpress/data': 'wp.data',
         '@wordpress/block-editor': 'wp.blockEditor',
         '@wordpress/components': 'wp.components'
     },

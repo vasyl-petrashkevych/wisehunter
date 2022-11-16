@@ -5,18 +5,27 @@ import {
     useBlockProps,
     RichText,
 } from '@wordpress/block-editor';
-import './styles.scss'
+import {ResponsiveWrapper} from '@wordpress/components';
 
-const TwoColumnsEdit: FC<Props> = ({attributes, setAttributes}) => {
+import './styles.scss'
+import {withSelect} from '@wordpress/data'
+
+const TwoColumnsEdit: FC<Props> = (props) => {
+
+    const {media, attributes, setAttributes} = props;
     return <div className="wh_container" {...useBlockProps()}>
-        <TwoColumnsSettings attributes={attributes} setAttributes={setAttributes}/>
+        <TwoColumnsSettings media={media} attributes={attributes} setAttributes={setAttributes}/>
         <section>
-            <div className="two-columns">
-               <div className="img">
-                   image
-               </div>
+            <div className={`two-columns${attributes.reverse ? ' reverse' : ''}`}>
+
+               <ResponsiveWrapper
+                   naturalWidth="100%"
+                   naturalHeight="auto"
+               >
+                   <img src={attributes.mediaUrl} />
+               </ResponsiveWrapper>
                 <div className="text">
-                    <h1>{attributes.title}</h1>
+                    <h2>{attributes.title}</h2>
                     <RichText
                         tagName="p"
                         value={ attributes.text }
@@ -30,4 +39,6 @@ const TwoColumnsEdit: FC<Props> = ({attributes, setAttributes}) => {
     </div>;
 }
 
-export default TwoColumnsEdit;
+export default withSelect((select, props) => {
+    return { media: props.attributes.mediaId ? select('core').getMedia(props.attributes.mediaId) : undefined };
+})(TwoColumnsEdit);

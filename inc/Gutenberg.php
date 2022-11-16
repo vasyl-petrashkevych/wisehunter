@@ -67,7 +67,6 @@ namespace WiseHunter {
 			wp_register_style(
 				'wisehunter-blocks-style',
 				get_stylesheet_directory_uri() . '/assets/admin/styles/gutenberg.css',
-				[ 'wp-blocks' ],
 				WISEHUNTER_THEME_VERSION
 			);
 		}
@@ -77,7 +76,7 @@ namespace WiseHunter {
 				register_block_type( $block,
 					[
 						'editor_script' => 'wisehunter-blocks',
-						'style_handle'  => 'wisehunter-blocks-style'
+						'editor_style'  => 'wisehunter-blocks-style'
 					]
 				);
 			}

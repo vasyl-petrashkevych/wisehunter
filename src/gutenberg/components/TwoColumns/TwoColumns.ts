@@ -5,7 +5,7 @@ export const TwoColumns = {
     title: 'TwoColumns',
     category: 'grid',
     attributes: {
-        flip: {
+        reverse: {
             type: 'boolean',
             default: false,
         },
@@ -17,9 +17,13 @@ export const TwoColumns = {
             type: 'string',
             default: 'Some text',
         },
-        image: {
-            type: 'object',
-            default: 'Some text',
+        mediaId: {
+            type: 'number',
+            default: 0
+        },
+        mediaUrl: {
+            type: 'string',
+            default: ''
         }
     },
     edit: TwoColumnsEdit,
