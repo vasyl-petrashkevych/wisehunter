@@ -1,7 +1,10 @@
 import {IComponent} from "../../types";
 
-export default interface IContainer extends IComponent {
+export default interface ITwoColumns extends IComponent {
     attributes: {
-        fullWidth: boolean;
+        title: string;
+        flip: string;
+        text: string;
+        image: object;
     }
 }

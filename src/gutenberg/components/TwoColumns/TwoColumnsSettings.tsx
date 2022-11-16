@@ -1,19 +1,26 @@
 import {
     InspectorControls,
 } from '@wordpress/block-editor';
-import {PanelBody, PanelRow, CheckboxControl} from '@wordpress/components';
+import {PanelBody, PanelRow, TextControl, CheckboxControl} from '@wordpress/components';
 
 import {FC} from "react";
-import IContainer from './TwoColumnsTypes'
+import ITwoColumns from './TwoColumnsTypes'
 
-const TwoColumnsSettings: FC<IContainer> = ({attributes, setAttributes}) => {
+const TwoColumnsSettings: FC<ITwoColumns> = ({attributes, setAttributes}) => {
     return <InspectorControls key="settings">
-        <PanelBody title="My Block Settings" initialOpen={true}>
+        <PanelBody title="Block Settings" initialOpen={true}>
             <PanelRow>
                 <CheckboxControl
-                    label="Full Width"
-                    checked={attributes.fullWidth}
-                    onChange={() => setAttributes({fullWidth: !attributes.fullWidth})}
+                    label="Flip"
+                    checked={ attributes.flip }
+                    onChange={() => setAttributes({flip: !attributes.flip})}
+                />
+            </PanelRow>
+            <PanelRow>
+                <TextControl
+                    label="Title"
+                    value={ attributes.title }
+                    onChange={(title) => setAttributes({title})}
                 />
             </PanelRow>
         </PanelBody>

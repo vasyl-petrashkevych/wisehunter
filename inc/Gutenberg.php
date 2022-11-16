@@ -6,10 +6,10 @@ namespace WiseHunter {
 		public static function init(): void {
 			add_filter( 'allowed_block_types_all', [ __CLASS__, 'allowed_block_types' ], 25, 2 );
 			add_action( 'init', [ __CLASS__, 'init_action' ] );
-			add_action( 'enqueue_block_editor_assets', [
-				__CLASS__,
-				'enqueue_block_editor_assets_action'
-			] );
+//			add_action( 'enqueue_block_editor_assets', [
+//				__CLASS__,
+//				'enqueue_block_editor_assets_action'
+//			] );
 			add_filter( 'block_categories_all', [ __CLASS__, 'register_categories' ] );
 		}
 
@@ -29,7 +29,7 @@ namespace WiseHunter {
 		private static function get_blocks(): array {
 			$blocks = [
 				self::generate_block_name( 'container' ),
-				self::generate_block_name( 'two_columns' ),
+				self::generate_block_name( 'twocolumns' ),
 			];
 
 			return $blocks;
@@ -77,7 +77,7 @@ namespace WiseHunter {
 				register_block_type( $block,
 					[
 						'editor_script' => 'wisehunter-blocks',
-						'style'         => 'wisehunter-blocks-style'
+						'style_handle'  => 'wisehunter-blocks-style'
 					]
 				);
 			}

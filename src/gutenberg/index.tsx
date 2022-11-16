@@ -7,5 +7,5 @@ function generate_block_name(slug) {
 }
 
 registerBlockType(generate_block_name('container'), Container)
-registerBlockType(generate_block_name('two_columns'), TwoColumns)
+registerBlockType(generate_block_name('twocolumns'), TwoColumns)
 
